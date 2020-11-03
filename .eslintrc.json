@@ -26,6 +26,7 @@
         "class-methods-use-this": "off",
         "no-useless-constructor": "off",
         "camelcase": "off",
+        "no-underscore-dangle": "off",
         "import/extensions": [
             "error",
             "ignorePackages",
