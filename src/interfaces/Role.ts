@@ -3,7 +3,7 @@ export default interface Role {
     title: string;
     description: string;
     alias: string;
-    deleted_at: Date | null;
+    deleted_at: Date | undefined;
     created_at: Date;
     updated_at: Date;
 }
