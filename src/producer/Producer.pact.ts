@@ -1,4 +1,3 @@
-import path from 'path';
 import { MessageProviderPact } from '@pact-foundation/pact';
 import IRole from '../interfaces/Role';
 
@@ -26,12 +25,9 @@ describe('RoleProducer', () => {
         },
         provider: 'RoleProvider',
         providerVersion: '1.0.0',
+        publishVerificationResult: true,
         pactUrls: [
-            path.resolve(
-                process.cwd(),
-                'pacts',
-                'roleconsumer-roleproducer.json',
-            ),
+            'http://localhost:9292/pacts/provider/RoleProducer/consumer/RoleConsumer/latest',
         ],
     });
 
