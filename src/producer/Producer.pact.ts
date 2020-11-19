@@ -1,6 +1,8 @@
 import { MessageProviderPact } from '@pact-foundation/pact';
 import IRole from '../interfaces/Role';
 
+import pactConfig from '../config/pact';
+
 const roleApiClient = {
     create: (): Promise<{ role: IRole }> => {
         return new Promise((resolve, _reject) => {
@@ -26,9 +28,7 @@ describe('RoleProducer', () => {
         provider: 'RoleProvider',
         providerVersion: '1.0.0',
         publishVerificationResult: true,
-        pactUrls: [
-            'http://localhost:9292/pacts/provider/RoleProducer/consumer/RoleConsumer/latest',
-        ],
+        pactUrls: [pactConfig.brokerPactUrl('RoleProducer', 'RoleConsumer')],
     });
 
     it('Role producer should send messages with correct params', () => {

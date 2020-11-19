@@ -1,11 +1,10 @@
-import path from 'path';
-
 import {
     MessageConsumerPact,
     synchronousBodyHandler,
 } from '@pact-foundation/pact';
 import { like } from '@pact-foundation/pact/dsl/matchers';
 import IRole from '../interfaces/Role';
+import pactConfig from '../config/pact';
 
 const roleLike = {
     _id: 'any_id',
@@ -29,7 +28,7 @@ const roleApiHandler = {
 
 const messagePact = new MessageConsumerPact({
     consumer: 'RoleConsumer',
-    dir: path.resolve(process.cwd(), 'pacts'),
+    dir: pactConfig.pactsDir,
     pactfileWriteMode: 'update',
     provider: 'RoleProducer',
 });
